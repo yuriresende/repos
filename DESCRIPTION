@@ -1,11 +1,11 @@
-Package: HDeconometrics
+Package: DLAB
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1
 Date: 2016-04-06
-Author: Gabriel Vasconcelos
+Author: GV HHH
 Maintainer: Who to complain to <yourfault@somewhere.net>
 Description: More about what it does (maybe more than one line)
 License: What license is it under?
 LazyData: TRUE
-Depends: Matrix, glmnet, metRology, boot, zoo
+Depends: Matrix, zoo
