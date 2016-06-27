@@ -1,33 +1,38 @@
-\name{predict.HDeconometrics}
-\alias{predict.HDeconometrics}
-\title{Predict method for functions in the HDeconometrics package.}
+\name{wide_to_panel}
+\alias{wide_to_panel}
+\title{Transforma varias matrizes ou cubos do formato wide para um painel.}
 \usage{
-predict.HDeconometrics(model,newdata)
+wide.to.panel(varlist,type=c("cube","matrix"))
 }
 
 
 \arguments{
-  \item{model}{model object from HDeconometrics package.}
+  \item{varlist}{Lista de matrizes ou cubos, onde cada matriz/cubo representa uma variável.}
 
-  \item{newdata}{Data used for prediction. If the data is the same used to fit the model, the result is the fitted value.}
+  \item{type}{matrix ou cube.}
 }
 
-
-\references{
-Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. "glmnet: Lasso and elastic-net regularized generalized linear models. R package version 1.9–5." (2013).
-
-
+\value{
+Esta função retorna um painel de dados da seguinte forma:
+  - Cada dimensão da matriz/cubo se tornará uma coluna indexadora do painel.
+  - Cada matriz/cubo da lista varlist se tornará uma variável do painel.
 }
 
 \examples{
 
-data(brinf)
-y=brinf[,1]
-X=brinf[,-1]
+#####exemplo com dados gerados#######
+set.seed(123)
+matriz1=matrix(rnorm(10),5,2)
+matriz2=matrix(runif(10),5,2)
+colnames(matriz1)=colnames(matriz2)=c("x","y")
+rownames(matriz1)=rownames(matriz2)=c("a","b","c","d","e")
 
-boostest=boosting(y,X,v=0.2)
-plot(y,type="l")
-lines(predict.HDeconometrics(boostest,X),col="red")
+matriz1
+matriz2
 
+varlist=list("v1"=matriz1,"v2"=matriz2)
+
+teste=wide.to.panel(varlist,type="matrix")
+teste
 }
 
