@@ -1,5 +1,5 @@
-\name{wide_to_panel}
-\alias{wide_to_panel}
+\name{wide.to.panel}
+\alias{wide.to.panel}
 \title{Transforma varias matrizes ou cubos do formato wide para um painel.}
 \usage{
 wide.to.panel(varlist,type=c("cube","matrix"))
