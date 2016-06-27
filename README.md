@@ -1,4 +1,4 @@
-# HDeconometrics
-Pacote de R do DLAB
+# Pacote de R do DLAB
+
 
 - blablabla
