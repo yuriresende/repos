@@ -2,7 +2,7 @@
 \alias{get.names}
 \title{Baixa tabelas com detalhes dos SKUS ou das lojas.}
 \usage{
-get.names(type=c("skus","lojas"), depart=c("D040")
+get.names(type=c("skus","lojas"), depart=c("D040"))
 }
 
 
