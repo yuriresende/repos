@@ -1,4 +1,7 @@
 # Pacote de R do DLAB
 
+## Lista de Funções
 
-- blablabla
+- data.download
+- wide.to.panel
+- aggregate.ts.matrix
