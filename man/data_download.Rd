@@ -10,7 +10,7 @@ data.download(variables, type=c("cia","cd","skus","opened-stores"), SKUS=NULL, d
   \item{variables}{vetor de string indicando as variáveis a serem baixadas do Oracle, inclusive a operação. Por exemplo, para baixar a 
   variável VDA_BRT na agregação de compania, deve-se considerar qual a operação agregadora, que pode ser SUM(VDA_BRT) ou AVG(VDA_BRT). Mais detalhes no item Details.}
 
-  \item{type}{string "cia" para agregação de compania, "cd" para agregação de centros de distribuição, "skus" para montar cubos com as SKUS desejadas e "opened-stores" para indicadores de loja aberta e atividade.}
+  \item{type}{string "cia" para agregação de compania, "cd" para agregação de centros de distribuição, "skus" para montar cubos com as SKUS desejadas e "opened-stores" para indicadores de loja aberta e atividade (quantidade vendida).}
   
   \item{SKUS}{Vetor de string com os SKUS desejado, apenas se type="skus".}
   
