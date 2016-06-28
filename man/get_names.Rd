@@ -18,8 +18,8 @@ Esta função retorna uma matriz de SKUS ou lojas.
 
 }
 
-\examples{
 
+\examples{
 # um departamento
 m=get.names(type="skus",depart="D040")
 
@@ -29,4 +29,5 @@ m=get.names(type="skus",depart=c("D040","D021"))
 #Lojas
 m=get.names(type="loja")
 
+}
 }
