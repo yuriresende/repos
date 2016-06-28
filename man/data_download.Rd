@@ -19,6 +19,7 @@ data.download(variables, type=c("cia","cd","skus","opened-stores"), SKUS=NULL, d
 
 \value{
 Esta função retorna uma lista contendo cubos ou matrizes da seguinte forma:
+
   - Se type="skus" e mais de um SKU for selecionado, ou se type="cd", a função retorna uma lista contendo cubos.
   - Se type="cia" ou type="skus" com apenas um SKU, a função retorna uma lista contendo matrizes.
   - Se type="opened-stores" a função retorna uma lista com duas matrizes, uma de loja aberta e outra de atividade. 
@@ -60,10 +61,10 @@ teste1=data.download(variables=variables, type="cia", depart=depart)
 teste2=data.download(variables=variables, dates, type="cd", depart=depart)
 
 ############# type=skus #############
-teste3=data_selection(variables=variables, type="skus", SKUS=SKUS)
+teste3=data.download(variables=variables, type="skus", SKUS=SKUS)
 
 ############# type=opened-stores #############
-teste1=data_selection(type="opened-stores", depart=depart)
+teste1=data.download(type="opened-stores", depart=depart)
 
 
 
