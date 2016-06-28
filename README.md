@@ -5,3 +5,4 @@
 - data.download
 - wide.to.panel
 - aggregate.ts.matrix
+- get.names
