@@ -6,6 +6,4 @@
 - wide.to.panel
 - aggregate.ts.matrix
 - get.names
-
-## Lista de Funções pendentes de documentação
 - gera.N.dias
