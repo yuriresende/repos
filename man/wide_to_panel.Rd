@@ -2,7 +2,7 @@
 \alias{wide.to.panel}
 \title{Transforma varias matrizes ou cubos do formato wide para um painel.}
 \usage{
-wide.to.panel(varlist,type=c("cube","matrix"))
+wide.to.panel(varlist,type=c("cube","matrix"),sku.column=TRUE)
 }
 
 
@@ -10,6 +10,8 @@ wide.to.panel(varlist,type=c("cube","matrix"))
   \item{varlist}{Lista de matrizes ou cubos, onde cada matriz/cubo representa uma variável.}
 
   \item{type}{matrix ou cube.}
+  
+  \item{sku.column} Considerar apenas se type="cube" e se o imput for um cubo da função data.download com type = "skus". Se TRUE então os skus não aparecerão em uma coluna de índice. Cada variável terá uma coluna para cada SKU. Os índices serão apenas para data e loja. 
 }
 
 \value{
