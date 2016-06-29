@@ -11,7 +11,7 @@ gera.N.dias(inicio=NULL,fim=NULL,N_t=NULL)
 
   \item{fim}{Argumento opcional com a data final da análise.}
   
-  \item{N_t}{Caso disponível, é possível introduzir a série contendo o número de lojas ativas no mês $N_t$}
+  \item{N_t}{Caso disponível, é possível introduzir a série contendo o número de lojas ativas no mês N_t}
 
 \value{
 Esta função retorna uma matriz de dados com a freqüência de dias dentro de cada mês da análise.
