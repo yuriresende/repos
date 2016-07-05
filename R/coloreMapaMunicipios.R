@@ -1,8 +1,12 @@
-coloreMapaMunicipios <- function(matrizInput,titulo="",regiao="Municipios", paleta="YlOrRd", borda="black", hachura="blue", densidade_hachura=30, angulo_hachura=45)
+coloreMapaMunicipios <- function(matrizInput,titulo="",regiao="Brasil", paleta="YlOrRd", borda="black", hachura="blue", densidade_hachura=30, angulo_hachura=45)
   {
   if(borda==FALSE)
   {
      borda="transparent"
+  }
+  if(regiao=="Brasil")
+  {
+    regiao="Municipios"
   }
   require("maptools")
   require("RColorBrewer")
