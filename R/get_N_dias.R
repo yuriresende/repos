@@ -1,5 +1,5 @@
 gera.N.dias = function(inicio=NULL,fim=NULL,N_t=NULL){
-  
+  require(lubridate)
   if(is.null(N_t)==TRUE){
     data.inicio = as.Date(inicio)
     data.fim = as.Date(fim)
