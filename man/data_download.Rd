@@ -14,7 +14,7 @@ data.download(variables, type=c("cia","cd","skus","opened-stores"), SKUS=NULL, d
   
   \item{SKUS}{Vetor de string com os SKUS desejado, apenas se type="skus".}
   
-  \item{depart}{Vetor de string com departamentos desejados. Apenas se type=c("cia","cd","opened-stores")}
+  \item{depart}{Vetor de string com departamentos desejados. Apenas se type=c("cia","cd","opened-stores")} 
 }
 
 \value{
