@@ -1,5 +1,5 @@
   
-coloreMapaRegioes <- function(matrizInput,titulo="",paleta="YlOrRd",  borda="black", hachura="blue", densidade_hachura=30, angulo_hachura=45)
+coloreMapaRegioes <- function(matrizInput,titulo="",paleta="YlOrRd",  borda="black", hachura="blue", densidade_hachura=10, angulo_hachura=45)
   {
 
   require("maptools")
