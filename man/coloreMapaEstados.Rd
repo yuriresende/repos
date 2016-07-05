@@ -7,7 +7,7 @@ coloreMapaEstados(matrizInput,titulo="",paleta="YlOrRd", borda="black", hachura=
 
 
 \arguments{
-  \item{matrizInput}{A matriz de input com os dados. Na primeira coluna, ela deverá conter os códigos de cada município. A segunda coluna deverá conter os valores referentes a cada município.}
+  \item{matrizInput}{A matriz de input com os dados. Na primeira coluna, ela deverá conter as siglas dos estados. A segunda coluna deverá conter os valores referentes a cada estado.}
 
   \item{titulo}{Opcional. O titulo a ser mostrado no gráfico. O padrão é ficar sem título.}
   
@@ -15,7 +15,7 @@ coloreMapaEstados(matrizInput,titulo="",paleta="YlOrRd", borda="black", hachura=
   
   \item{borda}{Opcional. Define a cor das bordas do mapa. O padrão é preto. Use FALSE para um mapa sem bordas.}
   
-  \item{hachura}{Opcional. Define a cor da hachura que será utilizada no mapa para municípios sem dados disponíveis na matriz de input.}
+  \item{hachura}{Opcional. Define a cor da hachura que será utilizada no mapa para estados sem dados disponíveis na matriz de input.}
   
   \item{densidade_hachura}{Opcional. Define a densidade das hachuras.}
   
