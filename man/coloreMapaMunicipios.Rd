@@ -29,7 +29,7 @@ coloreMapaMunicipios(matrizInput,titulo="",regiao="Brasil", paleta="YlOrRd", bor
 
 \value{
 Esta função recebe como input uma matriz com um valor para cada município, e gera um mapa colorindo cada município de acordo com o valor correspondente, utilizando um degradê.
-Caso o usuário queira mapas a nivel de Estado ou região, ver as funções coloreMapaEstados e coloreMapaRegioes.
+Caso o usuário queira mapas a nivel de estado ou região, ver as funções coloreMapaEstados e coloreMapaRegioes.
 }
 
 \examples{
