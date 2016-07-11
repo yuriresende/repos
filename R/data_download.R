@@ -1,6 +1,6 @@
 
 data.download=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
-  dates=c("2013-01-01","2016-06-30")
+  dates=c("2013-01-01","2016-07-07")
   require(RJDBC)
   drv <- JDBC(driverClass="oracle.jdbc.driver.OracleDriver", classPath = "/lib/ojdbc6.jar", "'")
   con <- dbConnect(drv, "jdbc:oracle:thin:@10.150.150.199:1521:puc", "puc_r", "puc_r#2016")
