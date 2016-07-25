@@ -10,6 +10,12 @@ gera.N.dias = function(inicio=NULL,fim=NULL,N_t=NULL){
     N.dias = matrix(NA,length(N_t),7)
   }
   
+  countwd <- function(startdate, enddate, weekday){
+  x <- seq( startdate, enddate, by=1 )
+  y <- weekdays( x )
+  sum( y == weekday )
+}
+  
   n.meses = length(seq(data.inicio,data.fim,"1 month"))
   vetor.dias = as.numeric(format(seq(data.inicio,data.fim,"1 month"),format="%m"))
   
