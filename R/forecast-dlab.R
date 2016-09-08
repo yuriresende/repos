@@ -54,7 +54,9 @@ forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
     save.arx.niv=rep(NA,npred)
     for(i in 1:npred){
       model=lm(y[1:(T-npred-1+i)]~Xall.nv[1:(T-npred-1+i),])
-      prev=c(1,Xall.nv[(T-npred+i),])%*%coef(model)
+      aux=coef(model)
+      aux(is.na(aux))=0
+      prev=c(1,Xall.nv[(T-npred+i),])%*%aux
       save.arx.niv[i]=prev
     }
   }
@@ -63,7 +65,9 @@ forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
     save.arx.lv=rep(NA,npred)
     for(i in 1:npred){
       model=lm(ldy[1:(TT-npred-1+i)]~Xall.lv[1:(TT-npred-1+i),])
-      prev=c(1,Xall.lv[(TT-npred+i),])%*%coef(model)
+      aux=coef(model)
+      aux(is.na(aux))=0
+      prev=c(1,Xall.lv[(TT-npred+i),])%*%aux
       save.arx.lv[i]=prev
     }
     save.arx.lv=exp(save.arx.lv)*y[(length(y)-npred):(length(y)-1)]
