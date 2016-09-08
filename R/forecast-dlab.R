@@ -1,20 +1,30 @@
 forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
   ## ==== funcao hmfv ==== ##
+  
+  if(min(y)<=0){
+    logvar="não foi possível fazer log-variação devido a valores negativos em y"
+    U=1
+  }else{
+    U=0
+  }
+  
+  
   aux=embed(y,h+1)
   y=aux[,1]
   lagy=aux[,ncol(aux)]
-  
-  ldy=diff(log(y),1)
-  ldlagy=diff(log(lagy),1)
-  
   T=length(y)
-  TT=length(ldy)
-  
   Xnv=tail(X,T)
-  Xlv=tail(X,TT)
-  
   Xall.nv=cbind(lagy,Xnv)
-  Xall.lv=cbind(ldlagy,Xlv)
+  
+  if(U==0){
+    ldy=diff(log(y),1)
+    ldlagy=diff(log(lagy),1)
+    TT=length(ldy)
+    Xlv=tail(X,TT)
+    Xall.lv=cbind(ldlagy,Xlv)
+  }
+  
+
   
   ## === Autorregressivo === ##
   # = Nivel = #
@@ -27,7 +37,7 @@ forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
     }
   }
   # = log variacao = #
-  {
+  if(U==0){
     save.ar.lv=rep(NA,nprev)
     for(i in 1:nprev){
       model=lm(ldy[1:(TT-nprev-1+i)]~ldlagy[1:(TT-nprev-1+i)])
@@ -49,7 +59,7 @@ forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
     }
   }
   # = log variacao = #
-  {
+  if(U==0){
     save.arx.lv=rep(NA,nprev)
     for(i in 1:nprev){
       model=lm(ldy[1:(TT-nprev-1+i)]~Xall.lv[1:(TT-nprev-1+i),])
@@ -73,7 +83,7 @@ forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
   }
   
   # = log variacao = #
-  {
+  if(U==0){
     save.sh.lv=rep(NA,nprev)
     
     for(i in 1:nprev){
@@ -97,7 +107,7 @@ forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
   }
   
   # = log variacao = #
-  {
+  if(U==0){
     save.ew.lv=rep(NA,nprev)
     
     for(i in 1:nprev){
@@ -122,7 +132,7 @@ forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
   }
   
   # = log variacao = #
-  {
+  if(U==0){
     save.rf.lv=rep(NA,nprev)
     
     for(i in 1:nprev){
@@ -135,9 +145,12 @@ forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
   
   nivel=cbind(save.ar.niv,save.arx.niv,save.ew.niv,save.sh.niv,save.rf.niv)
   nivel=cbind(nivel,rowMeans(nivel))
-  logvar=cbind(save.ar.lv,save.arx.lv,save.ew.lv,save.sh.lv,save.rf.lv)
-  logvar=cbind(logvar,rowMeans(logvar))
-  colnames(nivel)=colnames(logvar)=c("AR","ARX","EWMA","LASSO","Random Forest","AVG")
+  if(U==0){
+    logvar=cbind(save.ar.lv,save.arx.lv,save.ew.lv,save.sh.lv,save.rf.lv)
+    logvar=cbind(logvar,rowMeans(logvar))
+    colnames(logvar)=c("AR","ARX","EWMA","LASSO","Random Forest","AVG")
+  }
+  colnames(nivel)=c("AR","ARX","EWMA","LASSO","Random Forest","AVG")
   real=tail(y,nprev)
   
   return(list("logvar"=logvar,"nivel"=nivel,"real"=real))
