@@ -36,6 +36,8 @@ library(devtools)
 install_github("gabrielrvsc/HDeconometrics")
 library(HDeconometrics)
 
+IMPORTANTE: Se y tiver valores negativos a log-variação não será feita. 
+
 Os modelos implementados até o momento são?
 - AR
 - ARX
@@ -52,20 +54,19 @@ Os modelos implementados até o momento são?
 set.seed(123)
 X=matrix(rnorm(1500),150,10)
 
+erro=rnorm(150)
+y=rep(20,150)
+betas=(-1)^(1:10)
 
+for(i in 2:150){
+  y[i]=3+0.7*y[i-1]+t(X[i,]%*%betas)+erro[i]
+}
+y=y[-c(1:50)]; X=X[-c(1:50),]
 
-############# type=cia ############
-teste1=data.download(variables=variables, type="cia", depart=depart)
-
-############# type=cd #############
-teste2=data.download(variables=variables, dates, type="cd", depart=depart)
-
-############# type=skus #############
-teste3=data.download(variables=variables, type="skus", SKUS=SKUS)
-
-############# type=opened-stores #############
-teste1=data.download(type="opened-stores", depart=depart)
-
-
+## == utilizar função == ##
+teste=forecasts.dlab(y,X,h=1,npred=10)
+teste$logvar
+teste$nivel
+teste$real
 
 }
