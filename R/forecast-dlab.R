@@ -29,118 +29,118 @@ forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
   ## === Autorregressivo === ##
   # = Nivel = #
   {
-    save.ar.niv=rep(NA,nprev)
-    for(i in 1:nprev){
-      model=lm(y[1:(T-nprev-1+i)]~lagy[1:(T-nprev-1+i)])
-      prev=c(1,lagy[(T-nprev+i)])%*%coef(model)
+    save.ar.niv=rep(NA,npred)
+    for(i in 1:npred){
+      model=lm(y[1:(T-npred-1+i)]~lagy[1:(T-npred-1+i)])
+      prev=c(1,lagy[(T-npred+i)])%*%coef(model)
       save.ar.niv[i]=prev
     }
   }
   # = log variacao = #
   if(U==0){
-    save.ar.lv=rep(NA,nprev)
-    for(i in 1:nprev){
-      model=lm(ldy[1:(TT-nprev-1+i)]~ldlagy[1:(TT-nprev-1+i)])
-      prev=c(1,ldlagy[(TT-nprev+i)])%*%coef(model)
+    save.ar.lv=rep(NA,npred)
+    for(i in 1:npred){
+      model=lm(ldy[1:(TT-npred-1+i)]~ldlagy[1:(TT-npred-1+i)])
+      prev=c(1,ldlagy[(TT-npred+i)])%*%coef(model)
       save.ar.lv[i]=prev
     }
-    save.ar.lv=exp(save.ar.lv)*y[(length(y)-nprev):(length(y)-1)]
+    save.ar.lv=exp(save.ar.lv)*y[(length(y)-npred):(length(y)-1)]
   }
   
   
   ## === AR X === ##
   # = Nivel = #
   {
-    save.arx.niv=rep(NA,nprev)
-    for(i in 1:nprev){
-      model=lm(y[1:(T-nprev-1+i)]~Xall.nv[1:(T-nprev-1+i),])
-      prev=c(1,Xall.nv[(T-nprev+i),])%*%coef(model)
+    save.arx.niv=rep(NA,npred)
+    for(i in 1:npred){
+      model=lm(y[1:(T-npred-1+i)]~Xall.nv[1:(T-npred-1+i),])
+      prev=c(1,Xall.nv[(T-npred+i),])%*%coef(model)
       save.arx.niv[i]=prev
     }
   }
   # = log variacao = #
   if(U==0){
-    save.arx.lv=rep(NA,nprev)
-    for(i in 1:nprev){
-      model=lm(ldy[1:(TT-nprev-1+i)]~Xall.lv[1:(TT-nprev-1+i),])
-      prev=c(1,Xall.lv[(TT-nprev+i),])%*%coef(model)
+    save.arx.lv=rep(NA,npred)
+    for(i in 1:npred){
+      model=lm(ldy[1:(TT-npred-1+i)]~Xall.lv[1:(TT-npred-1+i),])
+      prev=c(1,Xall.lv[(TT-npred+i),])%*%coef(model)
       save.arx.lv[i]=prev
     }
-    save.arx.lv=exp(save.arx.lv)*y[(length(y)-nprev):(length(y)-1)]
+    save.arx.lv=exp(save.arx.lv)*y[(length(y)-npred):(length(y)-1)]
   }
   
   
   ## == shrinkage == ##
   # = Nivel = #
   {
-    save.sh.niv=rep(NA,nprev)
+    save.sh.niv=rep(NA,npred)
     
-    for(i in 1:nprev){
-      model=biclasso(Xall.nv[1:(T-nprev-1+i),],y[1:(T-nprev-1+i)],alpha=alpha.sh)
-      prev=c(1,Xall.nv[(T-nprev+i),])%*%model$coef
+    for(i in 1:npred){
+      model=biclasso(Xall.nv[1:(T-npred-1+i),],y[1:(T-npred-1+i)],alpha=alpha.sh)
+      prev=c(1,Xall.nv[(T-npred+i),])%*%model$coef
       save.sh.niv[i]=prev
     }
   }
   
   # = log variacao = #
   if(U==0){
-    save.sh.lv=rep(NA,nprev)
+    save.sh.lv=rep(NA,npred)
     
-    for(i in 1:nprev){
-      model=biclasso(Xall.lv[1:(TT-nprev-1+i),],ldy[1:(TT-nprev-1+i)],alpha=alpha.sh)
-      prev=c(1,Xall.lv[(TT-nprev+i),])%*%model$coef
+    for(i in 1:npred){
+      model=biclasso(Xall.lv[1:(TT-npred-1+i),],ldy[1:(TT-npred-1+i)],alpha=alpha.sh)
+      prev=c(1,Xall.lv[(TT-npred+i),])%*%model$coef
       save.sh.lv[i]=prev
     }
-    save.sh.lv=exp(save.sh.lv)*y[(length(y)-nprev):(length(y)-1)]
+    save.sh.lv=exp(save.sh.lv)*y[(length(y)-npred):(length(y)-1)]
   }
   
   
   ## == EWMA == ##
   # = Nivel = #
   {
-    save.ew.niv=rep(NA,nprev)
+    save.ew.niv=rep(NA,npred)
     
-    for(i in 1:nprev){
-      prev=ses(y[1:(T-nprev-1+i)],alpha=alpha.ew,h=h)$mean[h]
+    for(i in 1:npred){
+      prev=ses(y[1:(T-npred-1+i)],alpha=alpha.ew,h=h)$mean[h]
       save.ew.niv[i]=prev
     }
   }
   
   # = log variacao = #
   if(U==0){
-    save.ew.lv=rep(NA,nprev)
+    save.ew.lv=rep(NA,npred)
     
-    for(i in 1:nprev){
-      model=biclasso(Xall.lv[1:(TT-nprev-1+i),],ldy[1:(TT-nprev-1+i)],alpha=alpha.sh)
-      prev=ses(ldy[1:(TT-nprev-1+i)],alpha=alpha.ew,h=h)$mean[h]
+    for(i in 1:npred){
+      model=biclasso(Xall.lv[1:(TT-npred-1+i),],ldy[1:(TT-npred-1+i)],alpha=alpha.sh)
+      prev=ses(ldy[1:(TT-npred-1+i)],alpha=alpha.ew,h=h)$mean[h]
       save.ew.lv[i]=prev
     }
-    save.ew.lv=exp(save.ew.lv)*y[(length(y)-nprev):(length(y)-1)]
+    save.ew.lv=exp(save.ew.lv)*y[(length(y)-npred):(length(y)-1)]
   }
   
   
   ## == Random Forest == ##
   # = Nivel = #
   {
-    save.rf.niv=rep(NA,nprev)
+    save.rf.niv=rep(NA,npred)
     
-    for(i in 1:nprev){
-      model=randomForest(Xall.nv[1:(T-nprev-1+i),],y[1:(T-nprev-1+i)])
-      prev=predict(model,Xall.nv[(T-nprev+i),])
+    for(i in 1:npred){
+      model=randomForest(Xall.nv[1:(T-npred-1+i),],y[1:(T-npred-1+i)])
+      prev=predict(model,Xall.nv[(T-npred+i),])
       save.rf.niv[i]=prev
     }
   }
   
   # = log variacao = #
   if(U==0){
-    save.rf.lv=rep(NA,nprev)
+    save.rf.lv=rep(NA,npred)
     
-    for(i in 1:nprev){
-      model=randomForest(Xall.lv[1:(TT-nprev-1+i),],ldy[1:(TT-nprev-1+i)])
-      prev=predict(model,Xall.lv[(TT-nprev+i),])
+    for(i in 1:npred){
+      model=randomForest(Xall.lv[1:(TT-npred-1+i),],ldy[1:(TT-npred-1+i)])
+      prev=predict(model,Xall.lv[(TT-npred+i),])
       save.rf.lv[i]=prev
     }
-    save.rf.lv=exp(save.rf.lv)*y[(length(y)-nprev):(length(y)-1)]
+    save.rf.lv=exp(save.rf.lv)*y[(length(y)-npred):(length(y)-1)]
   }
   
   nivel=cbind(save.ar.niv,save.arx.niv,save.ew.niv,save.sh.niv,save.rf.niv)
@@ -151,7 +151,7 @@ forecasts.dlab=function(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95){
     colnames(logvar)=c("AR","ARX","EWMA","LASSO","Random Forest","AVG")
   }
   colnames(nivel)=c("AR","ARX","EWMA","LASSO","Random Forest","AVG")
-  real=tail(y,nprev)
+  real=tail(y,npred)
   
   return(list("logvar"=logvar,"nivel"=nivel,"real"=real))
 }
