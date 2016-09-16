@@ -2,7 +2,7 @@
 \alias{forecast.dlab}
 \title{Recebe uma série de tempo e uma matriz de variáveis exógenas e computa previsões em rolling windows para vários modelos com a série em nível e log-variação}
 \usage{
-forecast.dlab(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95)
+forecast.dlab(y,X,Xlog=NULL,h=1,npred=8,alpha.sh=0,alpha.ew=0.95)
 }
 
 
@@ -10,6 +10,8 @@ forecast.dlab(y,X,h=1,npred=8,alpha.sh=0,alpha.ew=0.95)
   \item{y}{Vetor contendo a série de tempo a ser prevista.}
 
   \item{X}{Matriz com variáveis exógenas}
+  
+  \item{Xlog}{Matriz de Variáveis exógenas que devem ser diferenciadas no modelo de log variação. }
   
   \item{h}{Horizonte de previsão. }
   
