@@ -1,5 +1,4 @@
-
-data.download=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
+data.download.2=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
   dates=c("2013-01-01",as.character(Sys.Date()-5))
   require(RJDBC)
   drv <- JDBC(driverClass="oracle.jdbc.driver.OracleDriver", classPath = "/lib/ojdbc6.jar", "'")
@@ -246,11 +245,10 @@ data.download=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     dates=seq(from=dates[1],to=dates[2],by="days")
     dates=as.character(dates)
     
-    tabloj <- dbSendQuery(con, paste("SELECT * FROM puc.RPO_CADASTRO_LOJA"))
-    tabloj= fetch(tabloj, n = -1) 
+    #tabloj <- dbSendQuery(con, paste("SELECT * FROM puc.RPO_CADASTRO_LOJA"))
+    #tabloj= fetch(tabloj, n = -1) 
     
-    
-    loj=tabloj$GEO_CD_LOJA
+    loj=unique(query$GEO_CD_LOJA)
     
     table=array(NA,dim=c(length(dates),length(loj),length(SKUS)))
     
@@ -346,12 +344,12 @@ data.download=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     dates=seq(from=dates[1],to=dates[2],by="days")
     dates=as.character(dates)
     
-    tabloj <- dbSendQuery(con, "SELECT * FROM puc.RPO_CADASTRO_LOJA")
-    tabloj <- fetch(tabloj, n = -1)
+    #tabloj <- dbSendQuery(con, "SELECT * FROM puc.RPO_CADASTRO_LOJA")
+    #tabloj <- fetch(tabloj, n = -1)
     
-    loj=tabloj$GEO_CD_LOJA
+    loj=unique(query$GEO_CD_LOJA)
     
-    table=matrix(NA,length(dates),nrow(tabloj))
+    table=matrix(NA,length(dates),length(loj))
     
     rownames(table)=dates
     colnames(table)=loj
@@ -393,4 +391,3 @@ data.download=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
   }
   
 }
-
