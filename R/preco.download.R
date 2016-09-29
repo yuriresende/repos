@@ -1,6 +1,5 @@
-preco.download=function(SKUS=NULL, depart=c("D040")){
-  
-  dates=c("2013-01-01","2016-09-05")
+preco.download=function(SKUS=NULL){
+  dates=c("2014-01-01",as.character(Sys.Date()-1))
   require(RJDBC)
   drv <- JDBC(driverClass="oracle.jdbc.driver.OracleDriver", classPath = "/lib/ojdbc6.jar", "'")
   con <- dbConnect(drv, "jdbc:oracle:thin:@10.150.150.199:1521:puc", "puc_r", "puc_r#2016")
@@ -22,7 +21,7 @@ preco.download=function(SKUS=NULL, depart=c("D040")){
   aux1=paste(aux1,SKUS[length(SKUS)])
   
   p1=c(" SELECT GEO_CD_LOJA, PROD_CD_ITEM*1 as PROD_CD_ITEM, to_char(PER_DT_DATA, 'yyyy-mm-dd') as PER_DT_DATA,")
-  p2=c("FROM puc.RPO_PUC_PRECO_VIG_PROMO WHERE PROD_CD_ITEM IN (")
+  p2=c("FROM puc.RPO_PUC_PRECO_VIG WHERE PROD_CD_ITEM IN (")
   p3=c(") GROUP BY GEO_CD_LOJA, PROD_CD_ITEM, PER_DT_DATA,PRECO_SAP")
   sql=paste(p1,aux,p2,aux1,p3)
   
@@ -40,11 +39,11 @@ preco.download=function(SKUS=NULL, depart=c("D040")){
   dates=seq(from=dates[1],to=dates[2],by="days")
   dates=as.character(dates)
   
-  tabloj <- dbSendQuery(con, paste("SELECT * FROM puc.RPO_CADASTRO_LOJA"))
-  tabloj= fetch(tabloj, n = -1) 
+  #tabloj <- dbSendQuery(con, paste("SELECT * FROM puc.RPO_CADASTRO_LOJA"))
+  #tabloj= fetch(tabloj, n = -1) 
   
   loj=unique(query$GEO_CD_LOJA)
-  #tabloj$GEO_CD_LOJA
+  
   table=array(NA,dim=c(length(dates),length(loj),length(SKUS)))
   
   dimnames(table)=list(dates,loj,SKUS)
