@@ -248,7 +248,7 @@ data.download=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     #tabloj <- dbSendQuery(con, paste("SELECT * FROM puc.RPO_CADASTRO_LOJA"))
     #tabloj= fetch(tabloj, n = -1) 
     
-    loj=unique(query$GEO_CD_LOJA)
+    loj=unique(tabloj$GEO_CD_LOJA)
     
     table=array(NA,dim=c(length(dates),length(loj),length(SKUS)))
     
