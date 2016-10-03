@@ -245,8 +245,8 @@ data.download=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     dates=seq(from=dates[1],to=dates[2],by="days")
     dates=as.character(dates)
     
-    #tabloj <- dbSendQuery(con, paste("SELECT * FROM puc.RPO_CADASTRO_LOJA"))
-    #tabloj= fetch(tabloj, n = -1) 
+    tabloj <- dbSendQuery(con, paste("SELECT * FROM puc.RPO_CADASTRO_LOJA"))
+    tabloj= fetch(tabloj, n = -1) 
     
     loj=unique(tabloj$GEO_CD_LOJA)
     
