@@ -1,4 +1,4 @@
-indiviual.forecasts=function(real,rate,pred,npred,h){
+individual.forecasts=function(real,rate,pred,npred,h){
   # == function hsfy == ##
   
   indpred=list()
