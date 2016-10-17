@@ -1,4 +1,4 @@
-error.measures=function(pred,real){
+forErrorMeasures=function(pred,real){
   ## == function hrfb == ##
   erro=real-pred
   if(length(ncol(erro))!=0){
