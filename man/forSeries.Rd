@@ -1,5 +1,5 @@
-\name{forecast.dlab}
-\alias{forecast.dlab}
+\name{forSeries}
+\alias{forSeries}
 \title{Recebe uma série de tempo e uma matriz de variáveis exógenas e computa previsões em rolling windows para vários modelos com a série em nível e log-variação}
 \usage{
 forecast.dlab(y,X,Xlog=NULL,h=1,npred=8,alpha.sh=0,alpha.ew=0.95)
