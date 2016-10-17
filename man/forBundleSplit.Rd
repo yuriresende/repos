@@ -1,5 +1,5 @@
-\name{individual.forecasts}
-\alias{individual.forecasts}
+\name{forBundleSplit}
+\alias{forBundleSplit}
 \title{Calcula previsões individuais com base em um rateio e uma previsão agregada.}
 \usage{
 indivual.forecasts(real,rate,pred,npred,h)
