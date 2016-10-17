@@ -1,4 +1,4 @@
-forecast.dlab=function (y, X, Xlog=NULL,  h = 1, npred = 8, alpha.sh = 0, alpha.ew = 0.95) 
+forSeries=function (y, X, Xlog=NULL,  h = 1, npred = 8, alpha.sh = 0, alpha.ew = 0.95) 
 {
   if (min(y) <= 0) {
     logvar = "não foi possível fazer log-variação devido a valores negativos em y"
