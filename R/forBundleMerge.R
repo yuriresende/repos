@@ -1,4 +1,4 @@
-apportionment=function(data){
+forBundleMerge=function(data){
   ## == function pgfs == ##
   app=data/rowSums(data,na.rm = TRUE)
   y=rowSums(data,na.rm=TRUE)
