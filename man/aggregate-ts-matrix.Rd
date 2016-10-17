@@ -7,7 +7,7 @@ aggregate.ts.matrix(matrix,aggregation=c("month","week"),FUN=sum,dates=NULL)
 }
 
 \arguments{
-\item{matrix}{A T x N matrix of daily data.}
+\item{matrix}{A T x N matrix of daily data. }
 \item{aggregation}{type of aggregation}
 \item{FUN}{Funtion used to aggregate. Standard is sum. One may also use mean, sd, var and more.}
 \item{dates}{Ignore this argument if is.zoo(matrix)==TRUE. If rownames(matrix) is of date type you may also ignore this argument. 
