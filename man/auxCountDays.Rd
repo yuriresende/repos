@@ -1,5 +1,5 @@
-\name{gera.N.dias}
-\alias{gera.N.dias}
+\name{auxCountDays}
+\alias{auxCountDays}
 \title{Retorna o número de dias entre duas datas}
 \usage{
 gera.N.dias(inicio=NULL,fim=NULL,N_t=NULL)
