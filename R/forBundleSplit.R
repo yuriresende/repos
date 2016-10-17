@@ -1,4 +1,4 @@
-individual.forecasts=function(real,rate,pred,npred,h){
+forBundleSplit=function(real,rate,pred,npred,h){
   # == function hsfy == ##
   
   indpred=list()
