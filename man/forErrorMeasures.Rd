@@ -1,5 +1,5 @@
-\name{error.measures}
-\alias{error.measures}
+\name{forErrorMeasures}
+\alias{forErrorMeasures}
 \title{Recebe uma matriz contendo previsões de diversos modelos e o valor realizado da série e computa as principais medidas de erro.}
 \usage{
 error.measures(pred,real)
