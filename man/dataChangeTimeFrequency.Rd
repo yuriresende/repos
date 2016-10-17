@@ -1,5 +1,5 @@
-\name{aggregate.ts.matrix}
-\alias{aggregate.ts.matrix}
+\name{dataChangeTimeFrequency}
+\alias{dataChangeTimeFrequency}
 \title{Aggregates a time-series matrix from daily to monthly or weekly.}
 
 \usage{
