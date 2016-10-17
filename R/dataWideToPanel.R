@@ -1,5 +1,5 @@
 
-wide.to.panel=function (varlist, type = "cube",sku.column=TRUE) 
+dataWideToPanel=function (varlist, type = "cube",sku.column=TRUE) 
 {
   if (type == "cube") {
     nam = dimnames(varlist[[1]])
