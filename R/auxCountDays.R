@@ -1,4 +1,4 @@
-gera.N.dias = function(inicio=NULL,fim=NULL,N_t=NULL){
+auxCountDays = function(inicio=NULL,fim=NULL,N_t=NULL){
   
   if(is.null(N_t)==TRUE){
     data.inicio = as.Date(inicio)
