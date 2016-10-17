@@ -1,4 +1,4 @@
-aggregate.ts.matrix=function (matrix, aggregation = c("month", "week"), FUN = sum, 
+dataChangeTimeFrequency=function (matrix, aggregation = c("month", "week"), FUN = sum, 
           dates = NULL) 
 {
   
