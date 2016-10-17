@@ -1,5 +1,5 @@
-\name{apportionment}
-\alias{apportionment}
+\name{forBundleMerge}
+\alias{forBundleMerge}
 \title{Agrega uma matriz onde cada coluna é uma série temporal e retorna a série agregada e a proporção de cada série no todo em cada período}
 \usage{
 apportionment(data)
