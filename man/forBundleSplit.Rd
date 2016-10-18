@@ -2,7 +2,7 @@
 \alias{forBundleSplit}
 \title{Calcula previsões individuais com base em um rateio e uma previsão agregada.}
 \usage{
-indivual.forecasts(real,rate,pred,npred,h)
+forBundleSplit(real,rate,pred,npred,h)
 }
 
 
@@ -45,23 +45,23 @@ for(j in 1:20){
 X=X[-c(1:50),]
 
 ## == rateio == ##
-rateio=apportionment(dadosy)
+rateio= forBundleMerge(dadosy)
 y=rateio$agg.data # = serie agregada
 rate=rateio$apportionment
 
 
 ## == fazer previsão == ##
-previsao=forecasts.dlab(y,X,h=1,npred=10)
+previsao=forSeries(y,X,h=1,npred=10)
 
 plvar=previsao$logvar
 pniv=previsao$nivel
 real=previsao$real
 
 ## == Calcular erros == ##
-erros.agg=error.measures(pniv,real)
+erros.agg=forErrorMeasures(pniv,real)
 
 ## == calcular previsoes das series desagregadas com base em rateio == ##
-pred.all=indivual.forecasts(tail(dadosy,10),rate,pniv,npred=10,h=1)
+pred.all=forBundleSplit(tail(dadosy,10),rate,pniv,npred=10,h=1)
 pred.all$indpred$AR
 real.all=pred.all$real
 
