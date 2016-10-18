@@ -31,5 +31,5 @@ Caso o usuário queira mapas a nivel de municipio ou estado, ver as funções co
 \examples{
 
 exemploRegioes = read.csv("/RProjetos/Mapas/ExemploInputRegioes.csv", sep=",", stringsAsFactors = FALSE)
-coloreMapaRegioes(exemploRegioes, paleta="Blues", titulo="Exemplo 1 - Regioes Faltantes", angulo_hachura = 90, hachura="brown", densidade_hachura=20)
+mapRegion(exemploRegioes, paleta="Blues", titulo="Exemplo 1 - Regioes Faltantes", angulo_hachura = 90, hachura="brown", densidade_hachura=20)
 }
