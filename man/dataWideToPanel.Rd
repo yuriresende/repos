@@ -2,7 +2,7 @@
 \alias{dataWideToPanel}
 \title{Transforma varias matrizes ou cubos do formato wide para um painel.}
 \usage{
-wide.to.panel(varlist,type=c("cube","matrix"),sku.column=TRUE)
+dataWideToPanel(varlist,type=c("cube","matrix"),sku.column=TRUE)
 }
 
 
@@ -34,7 +34,7 @@ matriz2
 
 varlist=list("v1"=matriz1,"v2"=matriz2)
 
-teste=wide.to.panel(varlist,type="matrix")
+teste=dataWideToPanel(varlist,type="matrix")
 teste
 }
 
