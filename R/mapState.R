@@ -28,5 +28,5 @@ mapState <- function(matrizInput,titulo="",paleta="YlOrRd", borda="black", hachu
   regiaoEscolhida$sigla= as.character(regiaoEscolhida$siglaUf)  
   regiaoEscolhida$Valores = as.numeric(matrizInput[match(regiaoEscolhida$sigla, matrizInput[,1]),2])
   regiaoEscolhida$ValoresTf = 100*(regiaoEscolhida$Valores - min(regiaoEscolhida$Valores, na.rm=TRUE))/(max(regiaoEscolhida$Valores, na.rm=TRUE)-min(regiaoEscolhida$Valores, na.rm=TRUE))
-  coloreMapa(regiaoEscolhida, tituloEscolhido, paletaEscolhida, bordaEscolhida, hachuraEscolhida, densidadeHachura, anguloHachura)
+  mapColor(regiaoEscolhida, tituloEscolhido, paletaEscolhida, bordaEscolhida, hachuraEscolhida, densidadeHachura, anguloHachura)
   }
