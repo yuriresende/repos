@@ -35,8 +35,8 @@ Caso o usuário queira mapas a nivel de estado ou região, ver as funções colo
 \examples{
 
 exemploMunicipios = read.csv("/RProjetos/Mapas/ExemploInputMunicipios.csv", sep=",", stringsAsFactors = FALSE)
-coloreMapaMunicipios(exemploMunicipios, regiao="Sul", titulo="Exemplo 1 - Sul (Sem borda)", borda=FALSE)
-coloreMapaMunicipios(exemploMunicipios, regiao="MG", paleta="RdBu", titulo="Exemplo 2 - Minas Gerais (Borda cinza)", borda="grey")
-coloreMapaMunicipios(exemploMunicipios, titulo="Exemplo 3 - RJ", paleta="Greens", regiao="RJ", borda="white")
-coloreMapaMunicipios(exemploMunicipios, titulo="Exemplo 4 - Geral", borda=FALSE)
+mapMunicipality(exemploMunicipios, regiao="Sul", titulo="Exemplo 1 - Sul (Sem borda)", borda=FALSE)
+mapMunicipality(exemploMunicipios, regiao="MG", paleta="RdBu", titulo="Exemplo 2 - Minas Gerais (Borda cinza)", borda="grey")
+mapMunicipality(exemploMunicipios, titulo="Exemplo 3 - RJ", paleta="Greens", regiao="RJ", borda="white")
+mapMunicipality(exemploMunicipios, titulo="Exemplo 4 - Geral", borda=FALSE)
 }
