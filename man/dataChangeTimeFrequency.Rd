@@ -3,7 +3,7 @@
 \title{Aggregates a time-series matrix from daily to monthly or weekly.}
 
 \usage{
-aggregate.ts.matrix(matrix,aggregation=c("month","week"),FUN=sum,dates=NULL)
+dataChangeTimeFrequency(matrix,aggregation=c("month","week"),FUN=sum,dates=NULL)
 }
 
 \arguments{
