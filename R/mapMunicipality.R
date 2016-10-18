@@ -1,4 +1,4 @@
-mapMunicipaloty <- function(matrizInput,titulo="",regiao="Brasil", paleta="YlOrRd", borda="black", hachura="blue", densidade_hachura=30, angulo_hachura=45)
+mapMunicipality <- function(matrizInput,titulo="",regiao="Brasil", paleta="YlOrRd", borda="black", hachura="blue", densidade_hachura=30, angulo_hachura=45)
   {
   if(borda==FALSE)
   {
