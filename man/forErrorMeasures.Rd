@@ -2,7 +2,7 @@
 \alias{forErrorMeasures}
 \title{Recebe uma matriz contendo previsões de diversos modelos e o valor realizado da série e computa as principais medidas de erro.}
 \usage{
-error.measures(pred,real)
+forErrorMeasures(pred,real)
 }
 
 
@@ -38,19 +38,19 @@ for(j in 1:20){
 X=X[-c(1:50),]
 
 ## == rateio == ##
-rateio=apportionment(dadosy)
+rateio=forBundleMerge(dadosy)
 y=rateio$agg.data # = serie agregada
 rate=rateio$apportionment
 
 
 ## == fazer previsão == ##
-previsao=forecasts.dlab(y,X,h=1,npred=10)
+previsao=forSeries(y,X,h=1,npred=10)
 
 plvar=previsao$logvar
 pniv=previsao$nivel
 real=previsao$real
 
 ## == Calcular erros == ##
-erros.agg=error.measures(pniv,real)
+erros.agg=forErrorMeasures(pniv,real)
 
 }
