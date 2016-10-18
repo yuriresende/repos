@@ -1,8 +1,8 @@
-\name{coloreMapaEstados}
-\alias{coloreMapaEstados}
+\name{mapState}
+\alias{mapState}
 \title{Colore o mapa brasileiro dividido em estados.}
 \usage{
-coloreMapaEstados(matrizInput,titulo="",paleta="YlOrRd", borda="black", hachura="blue", densidade_hachura=10, angulo_hachura=45)
+mapState(matrizInput,titulo="",paleta="YlOrRd", borda="black", hachura="blue", densidade_hachura=10, angulo_hachura=45)
 }
 
 
