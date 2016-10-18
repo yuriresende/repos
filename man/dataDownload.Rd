@@ -2,7 +2,7 @@
 \alias{dataDownload}
 \title{Baixa dados do Oracle para o R gerando querys automaticamente.}
 \usage{
-data.download(variables, type=c("cia","cd","skus","opened-stores"), SKUS=NULL, depart=NULL)
+dataDownload(variables, type=c("cia","cd","skus","opened-stores"), SKUS=NULL, depart=NULL)
 }
 
 
