@@ -31,6 +31,6 @@ Caso o usuário queira mapas a nivel de municipio ou região, ver as funções c
 \examples{
 
 exemploEstados = read.csv("/RProjetos/Mapas/ExemploInputEstados.csv", sep=",", stringsAsFactors = FALSE)
-coloreMapaEstados(exemploEstados, titulo="Exemplo 1 - Estados Faltantes", borda="white")
-coloreMapaEstados(exemploEstados, paleta="Reds", titulo="Exemplo 2 - Estados Faltantes")
+mapState(exemploEstados, titulo="Exemplo 1 - Estados Faltantes", borda="white")
+mapState(exemploEstados, paleta="Reds", titulo="Exemplo 2 - Estados Faltantes")
 }
