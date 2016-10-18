@@ -2,7 +2,7 @@
 \alias{forSeries}
 \title{Recebe uma série de tempo e uma matriz de variáveis exógenas e computa previsões em rolling windows para vários modelos com a série em nível e log-variação}
 \usage{
-forecast.dlab(y,X,Xlog=NULL,h=1,npred=8,alpha.sh=0,alpha.ew=0.95)
+forSeries(y,X,Xlog=NULL,h=1,npred=8,alpha.sh=0,alpha.ew=0.95)
 }
 
 
@@ -66,7 +66,7 @@ for(i in 2:150){
 y=y[-c(1:50)]; X=X[-c(1:50),]
 
 ## == utilizar função == ##
-teste=forecasts.dlab(y,X,h=1,npred=10)
+teste=forSeries(y,X,h=1,npred=10)
 teste$logvar
 teste$nivel
 teste$real
