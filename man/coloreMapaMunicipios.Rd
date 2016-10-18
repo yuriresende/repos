@@ -1,8 +1,8 @@
-\name{coloreMapaMunicipios}
-\alias{coloreMapaMunicipios}
+\name{mapMunicipality}
+\alias{mapMunicipality}
 \title{Colore o mapa brasileiro dividido em municípios.}
 \usage{
-coloreMapaMunicipios(matrizInput,titulo="",regiao="Brasil", paleta="YlOrRd", borda="black", hachura="blue", densidade_hachura=30, angulo_hachura=45)
+mapMunicipality(matrizInput,titulo="",regiao="Brasil", paleta="YlOrRd", borda="black", hachura="blue", densidade_hachura=30, angulo_hachura=45)
 }
 
 
