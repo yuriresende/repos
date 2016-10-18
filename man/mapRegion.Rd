@@ -1,8 +1,8 @@
-\name{coloreMapaRegioes}
-\alias{coloreMapaRegioes}
+\name{mapRegion}
+\alias{mapRegion}
 \title{Colore o mapa brasileiro dividido em regiões.}
 \usage{
-coloreMapaRegioes(matrizInput,titulo="",paleta="YlOrRd", borda="black", hachura="blue", densidade_hachura=10, angulo_hachura=45)
+mapRegion(matrizInput,titulo="",paleta="YlOrRd", borda="black", hachura="blue", densidade_hachura=10, angulo_hachura=45)
 }
 
 
