@@ -78,6 +78,6 @@ mapMunicipality <- function(matrizInput,titulo="",regiao="Brasil", paleta="YlOrR
   regiaoEscolhida$Valores = as.numeric(matrizInput[match(regiaoEscolhida$geocodigo, matrizInput[,1]),2])
   #Mapeia de 0 a 100
   regiaoEscolhida$ValoresTf = 100*(regiaoEscolhida$Valores - min(regiaoEscolhida$Valores, na.rm=TRUE))/(max(regiaoEscolhida$Valores,na.rm=TRUE)-min(regiaoEscolhida$Valores,na.rm=TRUE))
-  coloreMapa(regiaoEscolhida, tituloEscolhido, paletaEscolhida, bordaEscolhida, hachuraEscolhida, densidadeHachura, anguloHachura)
+  mapColor(regiaoEscolhida, tituloEscolhido, paletaEscolhida, bordaEscolhida, hachuraEscolhida, densidadeHachura, anguloHachura)
   }
   
