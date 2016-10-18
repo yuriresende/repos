@@ -1,4 +1,4 @@
-ultimo = function(x, na.rm = TRUE) {
+auxUltimo = function(x, na.rm = TRUE) {
         if (all(is.na(x))) {
             return(NA)
         }
