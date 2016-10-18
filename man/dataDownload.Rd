@@ -55,16 +55,16 @@ SKUS=c("4040347","4040346")
 depart=c("D040")
 
 ############# type=cia ############
-teste1=data.download(variables=variables, type="cia", depart=depart)
+teste1=dataDownload(variables=variables, type="cia", depart=depart)
 
 ############# type=cd #############
-teste2=data.download(variables=variables, dates, type="cd", depart=depart)
+teste2=dataDownload(variables=variables, dates, type="cd", depart=depart)
 
 ############# type=skus #############
-teste3=data.download(variables=variables, type="skus", SKUS=SKUS)
+teste3=dataDownload(variables=variables, type="skus", SKUS=SKUS)
 
 ############# type=opened-stores #############
-teste1=data.download(type="opened-stores", depart=depart)
+teste1=dataDownload(type="opened-stores", depart=depart)
 
 
 
