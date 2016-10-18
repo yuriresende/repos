@@ -1,6 +1,6 @@
 
   
-coloreMapa<- function(regiaoEscolhida, tituloEscolhido, paletaEscolhida, bordaEscolhida, hachuraEscolhida, densidadeHachura, anguloEscolhido)
+mapColor<- function(regiaoEscolhida, tituloEscolhido, paletaEscolhida, bordaEscolhida, hachuraEscolhida, densidadeHachura, anguloEscolhido)
   {
   #Cria a paleta
   paletaCores = colorRampPalette(brewer.pal(9,paletaEscolhida))(101)
