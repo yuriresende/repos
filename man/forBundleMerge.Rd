@@ -36,7 +36,7 @@ for(j in 1:20){
 X=X[-c(1:50),]
 
 ## == rateio == ##
-rateio=apportionment(dadosy)
+rateio=forBundleMerge(dadosy)
 rateio$agg.data
 rateio$apportionment
 
