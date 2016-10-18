@@ -1,8 +1,8 @@
-\name{preco.download}
-\alias{preco.download}
+\name{dataDownloadPrice}
+\alias{dataDownloadPrice}
 \title{Baixa a base de preços SAP do Oracle por loja para o R gerando querys automaticamente.}
 \usage{
-preco.download(SKUS=NULL)
+dataDownloadPrice(SKUS=NULL)
 }
 
 \arguments{
