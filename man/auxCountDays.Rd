@@ -18,5 +18,5 @@ Esta função retorna uma matriz de dados com a freqüência de dias dentro de c
   }
 
 \examples{
-N.dias = gera.N.dias(c("2013-01-01"), c("2016-06-01"))
+N.dias = auxCountDays(c("2013-01-01"), c("2016-06-01"))
 }
