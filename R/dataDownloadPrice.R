@@ -1,4 +1,4 @@
-preco.download=function(SKUS=NULL){
+dataDownloadPrice=function(SKUS=NULL){
   dates=c("2013-01-01",as.character(Sys.Date()-1))
   require(RJDBC)
   drv <- JDBC(driverClass="oracle.jdbc.driver.OracleDriver", classPath = "/lib/ojdbc6.jar", "'")
