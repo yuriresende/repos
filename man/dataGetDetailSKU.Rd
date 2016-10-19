@@ -27,4 +27,3 @@ m=dataGetDetailSKU(depart=c("D040","D021"))
 
 
 }
-}
