@@ -71,3 +71,6 @@ error.all.by.model$LASSO
 
 
 }
+\author{
+  Coded by Henrique Helfer Hoeltgebaum and Gabriel Vasconcelos, last updated on 01-11-2016.
+  }
