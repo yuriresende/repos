@@ -1,6 +1,6 @@
 \name{dataGetDetailStore}
 \alias{dataGetDetailStore}
-\title{Baixa tabelas com detalhes dos SKUS ou das lojas.}
+\title{Baixa tabelas com informações detalhadas das lojas}
 \usage{
 dataGetDetailStore()
 }
