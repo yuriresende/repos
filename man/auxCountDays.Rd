@@ -7,9 +7,9 @@ auxCountDays(inicio=NULL,fim=NULL,N_t=NULL)
 
 
 \arguments{
-  \item{inicio}{Argumento opcional com a data de início da análise.}
+  \item{inicio}{Argumento opcional com a data de início.}
 
-  \item{fim}{Argumento opcional com a data final da análise.}
+  \item{fim}{Argumento opcional com a data final.}
   
   \item{N_t}{Caso disponível, é possível introduzir a série contendo o número de lojas ativas no mês N_t}
 
