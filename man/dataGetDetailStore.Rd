@@ -18,4 +18,3 @@ Esta função retorna uma matriz de detalhes das lojas.
 m=dataGetDetailStore()
 
 }
-}
