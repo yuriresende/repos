@@ -54,3 +54,7 @@ real=previsao$real
 erros.agg=forErrorMeasures(pniv,real)
 
 }
+
+\author{
+  Coded by Gabriel Vasconcelos, last updated on 01-11-2016.
+  }
