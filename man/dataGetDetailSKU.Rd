@@ -27,3 +27,7 @@ m=dataGetDetailSKU(depart=c("D040","D021"))
 
 
 }
+
+\author{
+  Coded by Henrique Helfer Hoeltgebaum and Gabriel Vasconcelos, last updated on 01-11-2016.
+  }
