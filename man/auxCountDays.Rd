@@ -12,6 +12,8 @@ auxCountDays(inicio=NULL,fim=NULL,N_t=NULL)
   \item{fim}{Argumento opcional com a data final.}
   
   \item{N_t}{Caso disponível, é possível introduzir a série contendo o número de lojas ativas no mês N_t}
+  
+}
 
 \value{
 Esta função retorna uma matriz de dados com a freqüência de dias dentro de cada mês da análise.
