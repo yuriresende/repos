@@ -1,6 +1,6 @@
 \name{dataGetDetailSKU}
 \alias{dataGetDetailSKU}
-\title{Baixa tabelas com detalhes dos SKUS ou das lojas.}
+\title{Baixa tabelas com informações detalhadas dos SKUS}
 \usage{
 dataGetDetailSKU(depart=c("D040"))
 }
@@ -13,7 +13,7 @@ dataGetDetailSKU(depart=c("D040"))
 }
 
 \value{
-Esta função retorna uma matriz de detalhes de SKUS.
+Esta função retorna uma matriz de detalhes de SKUs.
 
 }
 
