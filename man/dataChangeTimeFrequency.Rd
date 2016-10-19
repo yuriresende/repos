@@ -16,3 +16,7 @@ If neither is the case, this argument is a vector of daily dates to be used on t
 \value{
 This function returns a time-series matrix with the desired aggregation.
 }
+
+\author{
+  Coded by Henrique Helfer Hoeltgebaum and Gabriel Vasconcelos, last updated on 01-11-2016.
+  }
