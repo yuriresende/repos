@@ -34,3 +34,7 @@ exemploEstados = read.csv("/RProjetos/Mapas/ExemploInputEstados.csv", sep=",", s
 mapState(exemploEstados, titulo="Exemplo 1 - Estados Faltantes", borda="white")
 mapState(exemploEstados, paleta="Reds", titulo="Exemplo 2 - Estados Faltantes")
 }
+
+\author{
+  Coded by Thiago Milagres, last updated on 01-11-2016.
+  }
