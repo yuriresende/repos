@@ -72,3 +72,7 @@ teste$nivel
 teste$real
 
 }
+
+\author{
+  Coded by Gabriel Vasconcelos, last updated on 01-11-2016.
+  }
