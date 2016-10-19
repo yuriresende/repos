@@ -33,3 +33,7 @@ Caso o usuário queira mapas a nivel de municipio ou estado, ver as funções co
 exemploRegioes = read.csv("/RProjetos/Mapas/ExemploInputRegioes.csv", sep=",", stringsAsFactors = FALSE)
 mapRegion(exemploRegioes, paleta="Blues", titulo="Exemplo 1 - Regioes Faltantes", angulo_hachura = 90, hachura="brown", densidade_hachura=20)
 }
+
+\author{
+  Coded by Thiago Milagres, last updated on 01-11-2016.
+  }
