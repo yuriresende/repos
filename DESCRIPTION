@@ -1,11 +1,11 @@
 Package: DLAB
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1
+Title: Pacote D-Lab
+Version: 1.0
 Date: 2016-04-06
-Author: GV HHH
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
+Author: Gabriel Vasconcelos, Henrique Helfer Hoeltgebaum, Pedro CL Souza
+Maintainer: pedroclsouza@econ.puc-rio.br
+Description: Pacotes utilizados no D-Lab
 License: What license is it under?
 LazyData: TRUE
 Depends: Matrix, zoo, RJDBC, parallel, rJava, DBI, maptools, RColorBrewer, plotrix, lubridate, forecast, randomForest
