@@ -41,3 +41,7 @@ rateio$agg.data
 rateio$apportionment
 
 }
+
+\author{
+  Coded by Gabriel Vasconcelos, last updated on 01-11-2016.
+  }
