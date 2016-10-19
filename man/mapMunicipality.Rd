@@ -40,3 +40,7 @@ mapMunicipality(exemploMunicipios, regiao="MG", paleta="RdBu", titulo="Exemplo 2
 mapMunicipality(exemploMunicipios, titulo="Exemplo 3 - RJ", paleta="Greens", regiao="RJ", borda="white")
 mapMunicipality(exemploMunicipios, titulo="Exemplo 4 - Geral", borda=FALSE)
 }
+
+\author{
+  Coded by Thiago Milagres, last updated on 01-11-2016.
+  }
