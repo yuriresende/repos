@@ -20,3 +20,7 @@ Esta função retorna uma lista contendo cubos ou matrizes de preço SAP por loj
 SKUS=c("4040347","4040346")
 teste = dataDownloadPrice(SKUS=SKUS)
 }
+
+\author{
+  Coded by Henrique Helfer Hoeltgebaum and Gabriel Vasconcelos, last updated on 01-11-2016.
+  }
