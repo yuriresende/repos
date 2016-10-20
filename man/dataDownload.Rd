@@ -10,7 +10,7 @@ dataDownload(variables, type=c("cia","cd","skus","opened-stores"), SKUS=NULL, de
   \item{variables}{vetor de string indicando as variáveis a serem baixadas do Oracle, inclusive a operação. Por exemplo, para baixar a 
   variável VDA_BRT na agregação de compania, deve-se considerar qual a operação agregadora, que pode ser SUM(VDA_BRT) ou AVG(VDA_BRT). Mais detalhes no item Details.}
 
-  \item{type}{string "cia" para agregação de compania, "cd" para agregação de centros de distribuição, "skus" para montar cubos com as SKUS desejadas e "opened-stores" para indicadores de loja aberta e atividade (quantidade vendida).}
+  \item{type}{string "cia" para agregação de compania, "cd" para agregação de centros de distribuição, "skus" para montar cubos com as SKUS desejadas, "opened-stores" para indicadores de loja aberta e atividade (quantidade vendida) e "group-skus" para baixar os dados agrupando-os com relação aos skus desejados. }
   
   \item{SKUS}{Vetor de string com os SKUS desejado, apenas se type="skus".}
   
@@ -21,7 +21,7 @@ dataDownload(variables, type=c("cia","cd","skus","opened-stores"), SKUS=NULL, de
 Esta função retorna uma lista contendo cubos ou matrizes da seguinte forma:
 
   - Se type="skus" e mais de um SKU for selecionado, ou se type="cd", a função retorna uma lista contendo cubos.
-  - Se type="cia" ou type="skus" com apenas um SKU, a função retorna uma lista contendo matrizes.
+  - Se type="cia" ou type="skus" ou type="group-skus" com apenas um SKU, a função retorna uma lista contendo matrizes.
   - Se type="opened-stores" a função retorna uma lista com duas matrizes, uma de loja aberta e outra de atividade. 
   - IMPORTANTE: as listas de matrizes ou cubos para todos os tipos menos type="opened-stores" possuem uma matriz/cubo para cada variável do vetor varables. 
 }
@@ -64,8 +64,11 @@ teste2=dataDownload(variables=variables, dates, type="cd", depart=depart)
 teste3=dataDownload(variables=variables, type="skus", SKUS=SKUS)
 
 ############# type=opened-stores #############
-teste1=dataDownload(type="opened-stores", depart=depart)
+teste4=dataDownload(type="opened-stores", depart=depart)
 
+  
+############# type = group-skus #############  
+teste5=data.download(variables,"group-skus",SKUS)
 
 
 }
