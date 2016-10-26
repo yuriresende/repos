@@ -18,6 +18,13 @@ dataGroupBaseUpdate(groups=NULL)
 
 }
 
+\details{
+
+- O tempo aproximado de atualização da base para todos os grupos é de 7 horas. 
+  
+} 
+  
+  
 }
   
   \author{
