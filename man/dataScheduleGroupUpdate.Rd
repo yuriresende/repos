@@ -18,6 +18,8 @@ dataScheduleGroupUpdate=(when="sexta 20 00")
 
 \details{
 
+- IMPORTANTE: Esta função foi feita para ser rodada preferencialmente no terminal do linux via putty. Ela não deve ser utilizada no RStudio pois impedirá o usuário de realizar quaisquer outras tarefas. 
+  
 - O tempo aproximado de atualização da base para todos os grupos é de 7 horas. 
   
 } 
