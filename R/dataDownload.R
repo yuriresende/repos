@@ -346,8 +346,10 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     
     #tabloj <- dbSendQuery(con, "SELECT * FROM puc.RPO_CADASTRO_LOJA")
     #tabloj <- fetch(tabloj, n = -1)
-    
-    loj=unique(query$GEO_CD_LOJA)
+    tabloj <- dbSendQuery(con, paste("SELECT * FROM puc.RPO_CADASTRO_LOJA"))
+    tabloj = fetch(tabloj, n = -1)
+    loj = unique(tabloj$GEO_CD_LOJA)
+    #loj=unique(query$GEO_CD_LOJA)
     
     table=matrix(NA,length(dates),length(loj))
     
