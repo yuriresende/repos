@@ -70,6 +70,11 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
       return(res)
     }
     
+    remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
+      if(length(remove)!=0){
+      query=query[-remove,]
+      range=range[-length(range)]
+    }
     n.cores=detectCores()-10
     aux=cbind(query[,1],query[,2])
     cl=makeCluster(n.cores)
@@ -171,6 +176,12 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
       return(res)
     }
     
+    remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
+      if(length(remove)!=0){
+      query=query[-remove,]
+      range=range[-length(range)]
+    }
+    
     n.cores=detectCores()-1
     aux = cbind(query1[,1],query1[,2],query1[,4])
     cl=makeCluster(n.cores)
@@ -262,6 +273,12 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
       id3=which(SKUS==q[2])
       res=c(id1,id2,id3)
       return(res)
+    }
+    
+    remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
+    if(length(remove)!=0){
+      query=query[-remove,]
+      range=range[-length(range)]
     }
     
     n.cores=detectCores()-1
@@ -441,6 +458,13 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
       res = c(id1, id2)
       return(res)
     }
+      
+ remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
+   if(length(remove)!=0){
+    query=query[-remove,]
+    range=range[-length(range)]
+   }
+      
     n.cores = detectCores() - 1
     aux = cbind(query[, 1], query[, 2])
     cl = makeCluster(n.cores)
