@@ -1,8 +1,8 @@
-\name{dataScheduleGroupUpdate}
-\alias{dataScheduleGroupUpdate}
+\name{dataScheduleSKUGroupUpdate}
+\alias{dataScheduleSKUGroupUpdate}
 \title{Agenda atualização do banco de dados de grupo para o dia de hora desejada pelo usuário.}
 \usage{
-dataScheduleGroupUpdate=(when="sexta 20 00")
+dataScheduleSKUGroupUpdate=(when="sexta 20 00")
 }
 
 
