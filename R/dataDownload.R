@@ -364,10 +364,14 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
       return(res)
     }
     
-    n.cores=detectCores()-1
-    cl=makeCluster(n.cores)
-    indexes=parApply(cl,query, 1, gcfv,dates=dates,loj=loj)
-    stopCluster(cl)
+      remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
+     query=query[-remove,]
+      n.cores = detectCores() - 1
+     aux = cbind(query[, 1], query[, 2])
+      cl = makeCluster(n.cores)
+     indexes = parApply(cl, aux, 1, gcfv, dates = dates, loj = loj)
+      stopCluster(cl)
+    
     
     cat("just a couple more minutes =)","\n")
     
