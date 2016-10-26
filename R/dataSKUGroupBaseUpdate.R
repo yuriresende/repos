@@ -1,4 +1,4 @@
-dataGroupBaseUpdate=function(groups=NULL){
+dataSKUGroupBaseUpdate=function(groups=NULL){
 
     
   variables=c("SUM(VDA_BRT)","SUM(VDA_QTD)", "SUM(CMV)", "SUM(VDA)", "SUM(EST_QTD)", "SUM(EST_TRAN)")
