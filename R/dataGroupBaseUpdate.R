@@ -143,7 +143,7 @@ dataGroupBaseUpdate=function(groups=NULL){
   # Botando as novas variaveis na painel
   painel$proxy.cupons.d40 <- t.cupons.d40.agregada$QTD_CUPOM[match(painel$chave,t.cupons.d40.agregada$chave)]
   painel$cupons.totais <- t.cupons$QTD_CUPOM[match(painel$chave,t.cupons$chave)]
-  
+  file.copy("/RProjetos/Dados/painel-atualizado/base-atualizada.RData","/RProjetos/Dados/paineis-antigos/base-antiga.RData" ,     copy.mode = TRUE, copy.date = FALSE)
   base=painel
   save(base,file="/RProjetos/Dados/painel-atualizado/base-atualizada.RData")
   
