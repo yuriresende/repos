@@ -364,8 +364,11 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
       return(res)
     }
     
-      remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
-     query=query[-remove,]
+    remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
+   if(length(remove)!=0){
+    query=query[-remove,]
+    range=range[-length(range)]
+   }
       n.cores = detectCores() - 1
      aux = cbind(query[, 1], query[, 2])
       cl = makeCluster(n.cores)
