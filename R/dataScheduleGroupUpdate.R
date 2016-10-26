@@ -1,4 +1,4 @@
-dataScheduleGroupUpdate=function(when="sexta 20 00"){
+dataScheduleSKUGroupUpdate=function(when="sexta 20 00"){
   
   loop=10
   while(loop==10){
@@ -10,7 +10,7 @@ dataScheduleGroupUpdate=function(when="sexta 20 00"){
     check=paste(day,hora,min)
     
     if(check==when){
-      save.base=dataGroupBaseUpdate()
+      save.base=dataSKUGroupBaseUpdate()
     }
     
   }
