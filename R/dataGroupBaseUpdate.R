@@ -14,7 +14,7 @@ dataGroupBaseUpdate=function(groups=NULL){
   skus.groups=read.table("/RProjetos/Dados/gruposD040.csv",sep=";",header=TRUE)[,c(4,1)]
   colnames(skus.groups) <- c("Grupo","SKU")
   
-  if(length(groups==0)){
+  if(length(groups)==0){
     groups=as.vector(unique(skus.groups$Grupo))
     cat("\n The group argument was not informed. The function will download data for all groups. \n") 
   }
