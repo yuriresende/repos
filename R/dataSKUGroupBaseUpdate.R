@@ -40,11 +40,25 @@ dataSKUGroupBaseUpdate=function(groups=NULL){
   
   painel.list=lapply(store,dataWideToPanel,type="matrix",sku.column=FALSE)
   
+    
   cat("\n
       #####################################################################
-      #### Download de finalizado com sucesso                         ####
+      #### Download de grupos finalizado com sucesso                   ####
       #####################################################################")
   
+   cat("\n
+      #####################################################################
+      #### Baixando dados de atividade de loja                         ####
+      #####################################################################")
+    
+   atividade=dataDownload(type="opened-stores", depart="D040") 
+   atividade=dataWideToPanel(atividade,type="matrix")[,3:4]
+    
+   cat("\n
+      #####################################################################
+      #### Download de dados de atividade de lojas finalizado com sucesso##
+      #####################################################################")
+    
   cat("\n
       #####################################################################
       #### Iniciando construção de painel  e transformação de variaveis####
@@ -56,6 +70,7 @@ dataSKUGroupBaseUpdate=function(groups=NULL){
   # = Criar p quant 99 = #
   qfun=function(x){
     x=x[!is.na(x)]
+    if(length(x)==0){return(NA)}
     aux=sort(x)
     return(aux[round(length(aux)*0.99)])
   }
@@ -70,7 +85,7 @@ dataSKUGroupBaseUpdate=function(groups=NULL){
   p_medio=Reduce("cbind",p_medio)
   p_99=Reduce("cbind",p_99)
   colnames(p_medio)=paste("p_medio_G",groups,sep=""); colnames(p_99)=paste("p_99_G",groups,sep="")
-  p=cbind(p_medio,p_99)
+  p=cbind(p_medio*1,p_99*1)*1
   row.names(p)=NULL
   
   # = criar X e W = #
@@ -90,7 +105,7 @@ dataSKUGroupBaseUpdate=function(groups=NULL){
   for(i in 1:length(groups)){
     colnames(painel.list[[i]])=paste(varlist,"_G",groups[i],sep="")
   }
-  painel=cbind(indexes,Reduce("cbind",painel.list),w,X,p)
+  painel=cbind(indexes,Reduce("cbind",painel.list),w,X,p,atividade)
   
   save(painel,file="/RProjetos/Dados/auxiliary-painel.RData")
   
