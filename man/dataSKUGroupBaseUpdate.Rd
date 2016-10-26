@@ -1,8 +1,8 @@
-\name{dataGroupBaseUpdate}
-\alias{dataGroupBaseUpdate}
+\name{dataSKUGroupBaseUpdate}
+\alias{dataSKUGroupBaseUpdate}
 \title{Atualiza a base de dados dos grupos DLAB de SKUS do departamento D040.}
 \usage{
-dataGroupBaseUpdate(groups=NULL)
+dataSKUGroupBaseUpdate(groups=NULL)
 }
 
 
