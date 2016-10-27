@@ -11,7 +11,7 @@ priStone = function(painel,graphic,graphic.path,graphic.name)
 \arguments{
   \item{painel}{Input data should be a panel data.}
   
-  \item{graphic}{If graphic=TRUE, a correlation plot will be provided.}
+  \item{graphic}{If graphic=TRUE, a plot containing the estimated coefficients from Stone model will be provided.}
   
   \item{graphic.path}{If graphic.path=TRUE, this argument is the path in which a pdf file containing the aforementioned graphic will be saved.}
   
