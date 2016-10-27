@@ -105,7 +105,9 @@ dataSKUGroupBaseUpdate=function(groups=NULL){
   for(i in 1:length(groups)){
     colnames(painel.list[[i]])=paste(varlist,"_G",groups[i],sep="")
   }
-  painel=cbind(indexes,Reduce("cbind",painel.list),w,X,p,atividade)
+  aux=Reduce("cbind", painel.list)
+  painel = cbind(indexes, aux, w, 
+               X,p, atividade)
   
   save(painel,file="/RProjetos/Dados/auxiliary-painel.RData")
   
