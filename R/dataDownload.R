@@ -61,7 +61,7 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     rownames(table)=dates
     colnames(table)=prod
     
-    range=1:nrow(query)
+    
     gcfv=function(q,dates,prod){
       q=unlist(c(q))
       id1=which(dates==q[2])
@@ -70,11 +70,8 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
       return(res)
     }
     
-    remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
-      if(length(remove)!=0){
-      query=query[-remove,]
-      range=range[-length(range)]
-    }
+   
+    range=1:nrow(query)
     n.cores=detectCores()-10
     aux=cbind(query[,1],query[,2])
     cl=makeCluster(n.cores)
@@ -176,11 +173,6 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
       return(res)
     }
     
-    remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
-      if(length(remove)!=0){
-      query=query[-remove,]
-      range=range[-length(range)]
-    }
     
     n.cores=detectCores()-1
     aux = cbind(query1[,1],query1[,2],query1[,4])
@@ -265,7 +257,6 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     
     dimnames(table)=list(dates,loj,SKUS)
     
-    range=1:nrow(query)
     
     gcfv=function(q,dates,loj,SKUS){
       id1=which(dates==q[3])
@@ -278,9 +269,9 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
     if(length(remove)!=0){
       query=query[-remove,]
-      range=range[-length(range)]
+
     }
-    
+    range=1:nrow(query)
     n.cores=detectCores()-1
     aux=cbind(query[,1],query[,2],query[,3])
     cl=makeCluster(n.cores)
@@ -373,7 +364,7 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     rownames(table)=dates
     colnames(table)=loj
     
-    range=1:nrow(query)
+  
     gcfv=function(q,dates,loj){
       id1=which(dates==q[2])
       id2=which(loj==q[1])
@@ -384,13 +375,14 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
    if(length(remove)!=0){
     query=query[-remove,]
-    range=range[-length(range)]
+    
    }
-      n.cores = detectCores() - 1
-     aux = cbind(query[, 1], query[, 2])
-      cl = makeCluster(n.cores)
-     indexes = parApply(cl, aux, 1, gcfv, dates = dates, loj = loj)
-      stopCluster(cl)
+    range=1:nrow(query)
+    n.cores = detectCores() - 1
+    aux = cbind(query[, 1], query[, 2])
+    cl = makeCluster(n.cores)
+    indexes = parApply(cl, aux, 1, gcfv, dates = dates, loj = loj)
+    stopCluster(cl)
     
     
     cat("just a couple more minutes =)","\n")
@@ -451,7 +443,6 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
     table = matrix(NA, length(dates), length(loj)) 
 
     dimnames(table) = list(dates, loj)
-    range = 1:nrow(query)
     gcfv = function(q, dates, loj) {
       id1 = which(dates == q[2])
       id2 = which(loj == q[1])
@@ -459,12 +450,11 @@ dataDownload=function(variables=NULL,type="cia",SKUS=NULL, depart=c("D040")){
       return(res)
     }
       
- remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
+    remove=which(is.na(match(query$GEO_CD_LOJA, loj)))
    if(length(remove)!=0){
     query=query[-remove,]
-    range=range[-length(range)]
    }
-      
+    range=1:nrow(query)  
     n.cores = detectCores() - 1
     aux = cbind(query[, 1], query[, 2])
     cl = makeCluster(n.cores)
