@@ -1,19 +1,19 @@
 \name{priRCTEvaluate}
 \alias{priRCTEvaluate}
-\title{Fits regression model with:(i) OLS with average price, (ii) OLS with PSAP and (iii) IV}
-\description{This function returns the coefficients and errors of the three proposed regression models:OLS with average price, OLS with PSAP and IV}
-
+\title{Fits regression model with:(i) OLS with average price, (ii) OLS with PSAP and (iii) IV: average price instrumented with PSAP}
+\description{This function returns the coefficients and standard errors of the three proposed regression models with dummy variables and fixed effects:OLS with average price, OLS with PSAP and average price instrumented with PSAP}
+          
 }
 \usage{
-priRCTEvaluate<-function(data.painel, dias.tratamento, familia)
+priRCTEvaluate<-function(data.painel, dias.tratamento, SKUGroup)
 }
 
 \arguments{
-  \item{data.painel}{Panel data which will be analysed.}
+  \item{data.painel}{The panel is the value 'data.painel' produced by the priDataPainel function, which is avaliable in this same package.}
   
-  \item{dias.tratamento}{Number of days in which the treatment was applied.}
+  \item{dias.tratamento}{Number of days in which the treatment was applied. It is the output 'dias.tratamento' of the priDataPainel function.}
   
-  \item{familia}{The SKU group number.}
+  \item{SKUGroup}{The SKU group number}
   
 }
   
@@ -37,7 +37,7 @@ priRCTEvaluate<-function(data.painel, dias.tratamento, familia)
   final.experimento <- '2016-09-22'
   
 # Parâmetros do experimento
-  familia <- '11'
+  SKUGroup <- '11'
   preco <- 1.49
   delta_p <- 0.3
     
@@ -52,9 +52,9 @@ priRCTEvaluate<-function(data.painel, dias.tratamento, familia)
   grupo.controle <- c('B1','B2')
   
   base_aux <- priDataPainel(Base,d_lojas,inicio.experimento,inicio.tratamento,final.experimento,
-                          familia,preco,delta_p,criterio_corte,grupo.controle,grupo.tratamento)
+                          SKUGroup,preco,delta_p,criterio_corte,grupo.controle,grupo.tratamento)
 
-  regressao_painel <- priRCTEvaluate(base_aux$data.painel,base_aux$dias.tratamento, familia)
+  regressao_painel <- priRCTEvaluate(base_aux$data.painel,base_aux$dias.tratamento, SKUGroup)
 
   regressao_painel$`OLS com p.médio`
   regressao_painel$`IV primeiro estágio`
