@@ -1,6 +1,5 @@
 priStone = function(painel,graphic,graphic.path,graphic.name){
   
-  
   Base = painel
   ##########################################
   # LOAD PACKAGES AND SOURCE FILES
@@ -68,6 +67,7 @@ priStone = function(painel,graphic,graphic.path,graphic.name){
   }
   
   matriz.coef.Mod.Stone = matrix(NA,length(ind.Q)+7,length(ind.Q))
+  matriz.ep.Mod.Stone = matrix(NA,length(ind.Q)+7,length(ind.Q))
   
   RHS = c("Dseg+Dter+Dqua+Dqui+Dsex+Dsab+Ddom+aux.reg")
   for (i in 1:(length(var.validas))) {
@@ -99,6 +99,9 @@ priStone = function(painel,graphic,graphic.path,graphic.name){
     eval(parse(text=texteval))
     
     texteval = paste("matriz.coef.Mod.Stone[,",k,"] = fit",ind.Q[k],"$coefficients",sep="")
+    eval(parse(text=texteval))
+    
+    texteval = paste("matriz.ep.Mod.Stone[,",k,"] = sqrt(diag(vcov(fit",ind.Q[k],")))",sep="")
     eval(parse(text=texteval))
     
     texteval = paste("rm(data_G",ind.i[k],")",sep="")
@@ -158,6 +161,7 @@ priStone = function(painel,graphic,graphic.path,graphic.name){
     
   }
   
+  
   return(list("Matriz coeficientes" = matriz.coef.Mod.Stone, "Matriz coeficientes transformados" = novos.coefs.modStone,
-              "Grupos Estimados" = var.validas, "Grupos Excluídos" = grupos.removidos))
+              "EP coeficientes" = matriz.ep.Mod.Stone, "Grupos Estimados" = var.validas, "Grupos Excluídos" = grupos.removidos))
 }
