@@ -9,12 +9,21 @@ priStone = function(painel,graphic,graphic.path,graphic.name)
 }
 
 \arguments{
-  \item{datec}{Date in the format YYY-MM-DD. If the user do not enter a date, it will return the most recent composition of store groups.}
+  \item{painel}{Input data should be a panel data.}
+  
+  \item{graphic}{If graphic=TRUE, a correlation plot will be provided.}
+  
+  \item{graphic.path}{If graphic.path=TRUE, this argument is the path in which a pdf file containing the aforementioned graphic will be saved.}
+  
+  \item{graphic.name}{If graphic.name=TRUE, this argument is the name of the pdf file saved in the graphic.path.}
 }
 
 \examples{
-table1 = priRCTComposition("2016-10-17")
-table2 = priRCTComposition()
+load("/RProjetos/Pricing/Dados Atualizados/Painel/Base.RData")  
+dados = Base
+graphic=TRUE
+graphic.path = "/RProjetos"
+graphic.name = "azulejo"
 }
 
 \author{
