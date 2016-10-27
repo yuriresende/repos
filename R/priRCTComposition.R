@@ -1,17 +1,21 @@
 priRCTComposition = function(date=NULL){
-  load("/RProjetos/Pricing/Dados Atualizados/Composicao Lojas/d.lojas.RData")
+  
   if(is.null(date)){
-    pri.composition = d.lojas[[length(d.lojas)]]
+    load("/RProjetos/Pricing/Dados Atualizados/Grupos de lojas da aleatorizacao/lojas.aleatorizacao.RData")
+    pri.composition = cbind.data.frame(lojas.aleatorizacao$loja,lojas.aleatorizacao$subgrupo)
+    colnames(pri.composition) = c("Loja","Grupo")
   }
   
   else if(date<="2016-08-24"){
-    
-    pri.composition = d.lojas[[1]]
+    load("/RProjetos/Pricing/Dados Atualizados/Grupos de lojas da aleatorizacao/lojas.aleatorizacao.OLD.RData")
+    pri.composition = cbind.data.frame(d.loja$Loja,d.loja$GRUPO)
+    colnames(pri.composition) = c("Loja","Grupo")
   }
   
   else if(date>="2016-08-25" & date<=Sys.Date()){
-    
-    pri.composition = d.lojas[[2]]
+    load("/RProjetos/Pricing/Dados Atualizados/Grupos de lojas da aleatorizacao/lojas.aleatorizacao.RData")
+    pri.composition = cbind.data.frame(lojas.aleatorizacao$loja,lojas.aleatorizacao$subgrupo)
+    colnames(pri.composition) = c("Loja","Grupo")
   } 
   
   return(pri.composition)
