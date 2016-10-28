@@ -1,11 +1,11 @@
-priOptParameters <- function (data.painel, familia) {
+priOptParameters <- function (data.painel, SKUGroup) {
   
   ############ Identificação da família no painel
-  col_p_medio<-which(colnames(data.painel)==paste('p.medio',familia,sep='.'))
-  col_vda_qtd<-which(colnames(data.painel)==paste('VDA_QTD_SKU',familia,sep=''))
-  col_vda_brut <- which(colnames(data.painel) == paste('VDA_BRUT_SKU', familia, sep=''))
-  col_vda <- which(colnames(data.painel) == paste('VDA', familia, sep=''))
-  col_cmv <- which(colnames(data.painel) == paste('CMV', familia, sep=''))
+  col_p_medio<-which(colnames(data.painel)==paste('p_medio_G',SKUGroup,sep=''))
+  col_vda_qtd<-which(colnames(data.painel)==paste('VDA_QTD_G',SKUGroup,sep=''))
+  col_vda_brut <- which(colnames(data.painel) == paste('VDA_BRT_G', SKUGroup, sep=''))
+  col_vda <- which(colnames(data.painel) == paste('VDA_G', SKUGroup, sep=''))
+  col_cmv <- which(colnames(data.painel) == paste('CMV_G', SKUGroup, sep=''))
   
   # Imposto: (Receita Bruta - Receita Líquida) / Receita Bruta no período pré-tratamento
   aux <- which(data.painel$D2 == 0)
