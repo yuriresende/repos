@@ -1,4 +1,4 @@
-priOptPrice <- function (familia, coef_agregado, Q, preco, range_preco, imposto, cmv) {
+priOptPrice <- function (SKUGroup, coef_agregado, Q, preco, range_preco, imposto, cmv) {
 
   x <- range_preco
   b <- coef_agregado
