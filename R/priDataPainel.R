@@ -1,5 +1,5 @@
 priDataPainel<-function (Base, d_lojas, inicio.experimento, inicio.tratamento, final.experimento,
-                         familia, preco ,delta_p, criterio_corte, grupo.controle, grupo.tratamento) {
+                         SKUGroup, preco ,delta_p, criterio_corte, grupo.controle, grupo.tratamento) {
   
   require(plm)
   
@@ -29,7 +29,7 @@ priDataPainel<-function (Base, d_lojas, inicio.experimento, inicio.tratamento, f
     # Filtrando a Base para analisar dados somente do período de experimento
     ###############################################################################
     
-    Base = subset(Base,is.element(as.Date(Base$data),datas.in))
+    Base = subset(Base,is.element(as.Date(Base$Data),datas.in))
     
     #######################################
     # Retira lojas fechadas pelo nosso critério
@@ -45,7 +45,7 @@ priDataPainel<-function (Base, d_lojas, inicio.experimento, inicio.tratamento, f
     
     for (i in 1:length(d_lojas[,1])){
       
-      index = which(as.character(Base$loja)==as.character(d_lojas[i,which(toupper(colnames(d_lojas))=='LOJA')]))
+      index = which(as.character(Base$Loja)==as.character(d_lojas[i,which(toupper(colnames(d_lojas))=='LOJA')]))
       
       if (as.character(d_lojas[i,which(toupper(colnames(d_lojas))=='SUBGRUPO')])%in%grupo.tratamento){
         aux[index,] = 1
@@ -68,7 +68,7 @@ priDataPainel<-function (Base, d_lojas, inicio.experimento, inicio.tratamento, f
     
     aux2=matrix(NA,nrow(Base),1)
     
-    aux2[which(is.element(Base$data,as.character(datas.depois))),]=1
+    aux2[which(is.element(Base$Data,as.character(datas.depois))),]=1
     aux2[is.na(aux2)]=0
     
     Base.series = data.frame(Base,aux2)
@@ -96,22 +96,22 @@ priDataPainel<-function (Base, d_lojas, inicio.experimento, inicio.tratamento, f
   }
   
   # remove lojas que praticaram preço médio PRÉ tratamento INFERIOR ao esperado. Podemos generalizar futuramente para preços superiores e erros NO tratamento
-  filtra_base<-function(PeQ,criterio_corte,familia,datas.depois,datas.in){
+  filtra_base<-function(PeQ,criterio_corte,SKUGroup,datas.depois,datas.in){
     
     datas.antes <- datas.in[which(datas.in!=datas.depois)]
     
-    Base_aux<- subset(PeQ,is.element(as.Date(PeQ$data),datas.antes))
+    Base_aux<- subset(PeQ,is.element(as.Date(PeQ$Data),datas.antes))
     
-    col_vda_brut<-which(colnames(Base_aux)==paste('VDA_BRUT_SKU',familia,sep=''))
-    col_vda_qtd<-which(colnames(Base_aux)==paste('VDA_QTD_SKU',familia,sep=''))
+    col_vda_brut<-which(colnames(Base_aux)==paste('VDA_BRT_G',SKUGroup,sep=''))
+    col_vda_qtd<-which(colnames(Base_aux)==paste('VDA_QTD_G',SKUGroup,sep=''))
     
-    Base_agregada <- aggregate(cbind(Base_aux[,col_vda_brut],Base_aux[,col_vda_qtd]) ~ loja, data=Base_aux, FUN = "sum")
+    Base_agregada <- aggregate(cbind(Base_aux[,col_vda_brut],Base_aux[,col_vda_qtd]) ~ Loja, data=Base_aux, FUN = "sum")
     
     Base_agregada$pmedio<-Base_agregada$V1/Base_agregada$V2
     
-    excluir<-Base_agregada$loja[which(Base_agregada$pmedio<criterio_corte)]
+    excluir<-Base_agregada$Loja[which(Base_agregada$pmedio<criterio_corte)]
     
-    Base_filtrada <- PeQ[which(PeQ$loja%in%excluir==FALSE),]
+    Base_filtrada <- PeQ[which(PeQ$Loja%in%excluir==FALSE),]
     
     return(list(Base_filtrada,excluir))
   }
@@ -124,16 +124,16 @@ priDataPainel<-function (Base, d_lojas, inicio.experimento, inicio.tratamento, f
   Base<-organiza_base(d_lojas,datas.in,datas.depois,preco,delta_p,grupo.controle,grupo.tratamento)
   
   # Formato de painel
-  col_p_medio<-which(colnames(Base)==paste('p.medio',familia,sep='.'))
-  col_vda_qtd<-which(colnames(Base)==paste('VDA_QTD_SKU',familia,sep=''))
+  col_p_medio<-which(colnames(Base)==paste('p_medio_G',SKUGroup,sep=''))
+  col_vda_qtd<-which(colnames(Base)==paste('VDA_QTD_G',SKUGroup,sep=''))
   
   PeQ = Base
-  c(PeQ,excluidos) := filtra_base(PeQ,criterio_corte,familia,datas.depois,datas.in)
+  c(PeQ,excluidos) := filtra_base(PeQ,criterio_corte,SKUGroup,datas.depois,datas.in)
   
   PeQ[is.na(PeQ)] = 0
   PeQ[which(PeQ[,col_p_medio]==0),col_p_medio] <- PeQ[which(PeQ[,col_p_medio]==0),'P_SAP']
   
-  data.painel <- plm.data(PeQ,c("loja","data"))
+  data.painel <- plm.data(PeQ,c("Loja","Data"))
   
   return(list('data.painel' = data.painel, 'dias.tratamento' = n_dias,'Lojas excluídas' = as.character(excluidos)))
 }
